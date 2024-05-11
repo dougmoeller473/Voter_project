@@ -2,6 +2,7 @@ from PyQt6.QtWidgets import *
 from gui import *
 from election import *
 
+
 class Logic(QMainWindow, Ui_MainWindow):
 
     def __init__(self):
@@ -26,7 +27,7 @@ class Logic(QMainWindow, Ui_MainWindow):
 
             if self.election.verify_voter(username, pin) == 'valid':
                 if self.radioButton_zelda.isChecked():
-                    self.election.add_vote(username,'Zelda')
+                    self.election.add_vote(username, 'Zelda')
                 elif self.radioButton_mario_kart.isChecked():
                     self.election.add_vote(username, 'Mario Kart')
                 elif self.radioButton_animal_crossing.isChecked():
@@ -47,9 +48,6 @@ class Logic(QMainWindow, Ui_MainWindow):
         self.write_in_field.clear()
         self.radioButton_zelda.setChecked(True)
 
-
-
-
     def clear(self):
         """
         Method clears the fields when the clear button is clicked
@@ -65,4 +63,3 @@ class Logic(QMainWindow, Ui_MainWindow):
         Method tabulates the votes when the tally button is pushed
         """
         self.label_feedback.setText(self.election.voting_results())
-
